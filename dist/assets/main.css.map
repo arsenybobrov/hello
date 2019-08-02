@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/styles/dummy.scss","webpack:///./src/styles/variables.scss"],"names":[],"mappings":"AAAA;EACE,cCDa;EDEb,eCDS","file":"main.css","sourcesContent":["body {\n  color: $brand;\n  font-size: $size;\n}","$brand: #ff0000;\n$size: 35px;"],"sourceRoot":""}
