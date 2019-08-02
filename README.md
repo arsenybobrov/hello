@@ -1,8 +1,8 @@
 # hello.
 prototyping ideas.
 
-##js
+## js
 import every ```src/js/*.js``` file into ```src/main.js```
 
-##styles
+## styles
 import every ```src/styles/*.scss``` file into ```src/main.scss```
