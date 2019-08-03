@@ -4,7 +4,7 @@
   "description": "prototyping ideas",
   "private": true,
   "scripts": {
-    "build": "webpack --config webpack.config.js"
+    "build": "NODE_ENV=production webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -13,7 +13,11 @@
   "author": "abobrov",
   "license": "MIT",
   "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
     "autoprefixer": "^9.6.1",
+    "babel-loader": "^8.0.6",
     "css-loader": "^3.1.0",
     "cssnano": "^4.1.10",
     "eslint": "^5.16.0",
