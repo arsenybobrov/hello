@@ -1,9 +1,15 @@
+@keyframes dummy {
+  from {color: lighten($brand, 100%);}
+  to {color: lighten($brand, 10%);}
+}
+
 body {
   color: $brand;
   font-size: $size;
 
   p {
-    transition: color .25s ease-out;
+    animation-duration: 3s;
+    animation-name: dummy;
 
     &:hover {
       color: lighten($brand, 30%);

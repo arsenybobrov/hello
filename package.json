@@ -15,8 +15,10 @@
   "devDependencies": {
     "autoprefixer": "^9.6.1",
     "css-loader": "^3.1.0",
+    "cssnano": "^4.1.10",
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.12.0",
+    "postcss-loader": "^3.0.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "webpack": "^4.39.1",
