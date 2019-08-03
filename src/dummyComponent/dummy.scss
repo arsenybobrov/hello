@@ -1,0 +1,12 @@
+body {
+  color: $brand;
+  font-size: $size;
+
+  p {
+    transition: color .25s ease-out;
+
+    &:hover {
+      color: lighten($brand, 30%);
+    }
+  }
+}

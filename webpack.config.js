@@ -10,7 +10,7 @@ module.exports = {
   devtool: "source-map",
   module: {
     rules: [{
-      test: /\.scss$/,
+      test: /\.(sa|sc|c)ss$/,
       use: [{
         loader: MiniCssExtractPlugin.loader,
       }, {

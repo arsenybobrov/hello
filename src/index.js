@@ -1,5 +1,13 @@
 import './main.scss';
-import dummy from './js/dummy';
+import debounce from 'lodash/debounce';
+import dummy from './dummyComponent/dummy';
 
-dummy();
-setInterval(function(){dummy()}, 5000);
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('document is ready!');
+
+  dummy('dummy is rocking');
+});
+
+window.addEventListener('resize', debounce(() => {
+  console.log('document resized!');
+}, 250));

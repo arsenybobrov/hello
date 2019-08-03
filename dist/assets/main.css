@@ -1,6 +1,10 @@
 body {
   color: #ff0000;
   font-size: 35px; }
+  body p {
+    transition: color .25s ease-out; }
+    body p:hover {
+      color: #ff9999; }
 
 
 /*# sourceMappingURL=main.css.map*/
