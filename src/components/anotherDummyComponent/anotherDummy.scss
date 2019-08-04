@@ -1,0 +1,15 @@
+#dummyBtn {
+  color: $light;
+  padding: 10px 15px;
+  display: inline-block;
+  margin-top: 25px;
+  background:  $brand;
+  transition: background-color .25s ease-out;
+  border: none;
+  font-size: ($size - 20);
+  cursor: pointer;
+
+  &:hover {
+    background: lighten($brand, 30%);
+  }
+}

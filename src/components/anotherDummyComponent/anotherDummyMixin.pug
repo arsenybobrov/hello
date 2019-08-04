@@ -1,0 +1,4 @@
+mixin anotherDummyMixin(props)
+  - var props = props || {}
+
+  button#dummyBtn(title!=props.text)!=props.text

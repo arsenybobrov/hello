@@ -1,0 +1,16 @@
+@keyframes dummy {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+h1 {
+  color: $brand;
+  margin-bottom: 25px;
+}
+
+p {
+  color: lighten($dark, 10%);
+  margin: 0;
+  animation-duration: 3s;
+  animation-name: dummy;
+}
