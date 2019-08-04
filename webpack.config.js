@@ -1,12 +1,36 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const fs = require('fs');
+
+function generateHtmlPlugins(templateDir) {
+  const templateFiles = fs.readdirSync(path.resolve(__dirname, templateDir));
+  return templateFiles.map((item) => {
+    const itemFiles = fs.readdirSync(path.resolve(__dirname, `${templateDir}/${item}`));
+    const filename = itemFiles.find((file) => file.match('component.pug'));
+
+    if (filename) {
+      const parts = filename.split('.');
+      const name = parts[0];
+      const identifier = parts[1];
+      const extension = parts[2];
+      return new HtmlWebpackPlugin({
+        filename: `../${name}.html`,
+        template: path.resolve(__dirname, `${templateDir}/${item}/${name}.${identifier}.${extension}`),
+      });
+    }
+
+    return false;
+  });
+}
+
+const htmlPlugins = generateHtmlPlugins('./src/components');
 
 module.exports = {
   mode: 'production',
   entry: './src/config/index.js',
   output: {
-    filename: 'main.js',
+    filename: 'main.min.js',
     path: path.resolve(__dirname, 'dist/assets'),
   },
   devtool: 'source-map',
@@ -51,15 +75,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '[name].css',
+      filename: '[name].min.css',
     }),
-    new HtmlWebpackPlugin({
-      template: 'src/components/dummyComponent/dummy.pug',
-      filename: '../dummy.html',
-    }),
-    new HtmlWebpackPlugin({
-      template: 'src/components/anotherDummyComponent/anotherDummy.pug',
-      filename: '../anotherDummy.html',
-    }),
-  ],
+  ].concat(htmlPlugins),
 };
