@@ -2,6 +2,7 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const fs = require('fs');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 function generateHtmlPlugins(templateDir) {
   const templateFiles = fs.readdirSync(path.resolve(__dirname, templateDir));
@@ -74,6 +75,9 @@ module.exports = {
     ],
   },
   plugins: [
+    new CleanWebpackPlugin(['dist'], {
+      root: process.cwd(),
+    }),
     new MiniCssExtractPlugin({
       filename: '[name].min.css',
     }),
