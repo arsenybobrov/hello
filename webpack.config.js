@@ -27,6 +27,8 @@ function generateHtmlPlugins(templateDir) {
 
 const htmlPlugins = generateHtmlPlugins('./src/components');
 
+console.log(htmlPlugins);
+
 module.exports = {
   mode: 'production',
   entry: './src/config/index.js',
