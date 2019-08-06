@@ -3,8 +3,8 @@ import './main.scss';
 import '../assets/fonts/exo2-regular-webfont.woff';
 import '../assets/fonts/exo2-regular-webfont.woff2';
 
-import dummy from '../components/dummyComponent/dummy';
-import anotherDummy from '../components/anotherDummyComponent/anotherDummy';
+import dummy from '../components/molecules/dummyComponent/dummy';
+import anotherDummy from '../components/atoms/anotherDummyComponent/anotherDummy';
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log('document is ready!');
