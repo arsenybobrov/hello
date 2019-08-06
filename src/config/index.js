@@ -2,6 +2,7 @@ import debounce from 'lodash/debounce';
 import './main.scss';
 import '../assets/fonts/exo2-regular-webfont.woff';
 import '../assets/fonts/exo2-regular-webfont.woff2';
+
 import dummy from '../components/dummyComponent/dummy';
 import anotherDummy from '../components/anotherDummyComponent/anotherDummy';
 

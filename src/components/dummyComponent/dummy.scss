@@ -3,6 +3,13 @@
   to { opacity: 1; }
 }
 
+.header {
+  width: 100%;
+  height: 250px;
+  background: url($imgPath + 'hello_cgn.jpg') no-repeat;
+  background-size: cover;
+}
+
 h1 {
   color: $brand;
   margin-bottom: 25px;

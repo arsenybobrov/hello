@@ -3,7 +3,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const fs = require('fs');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-// const CopyPlugin = require('copy-webpack-plugin');
 
 function generateHtmlPlugins(templateDir) {
   const templateFiles = fs.readdirSync(path.resolve(__dirname, templateDir));
@@ -17,7 +16,7 @@ function generateHtmlPlugins(templateDir) {
       const identifier = parts[1];
       const extension = parts[2];
       return new HtmlWebpackPlugin({
-        filename: `../${name}.html`,
+        filename: `${name}.html`,
         template: path.resolve(__dirname, `${templateDir}/${item}/${name}.${identifier}.${extension}`),
       });
     }
@@ -31,14 +30,12 @@ function generateHtmlPlugins(templateDir) {
 
 const htmlPlugins = generateHtmlPlugins('./src/components');
 
-console.log(htmlPlugins);
-
 module.exports = {
   mode: 'production',
   entry: './src/config/index.js',
   output: {
     filename: 'main.min.js',
-    path: path.resolve(__dirname, 'dist/assets'),
+    path: path.resolve(__dirname, 'dist'),
   },
   devtool: 'source-map',
   module: {
@@ -86,7 +83,19 @@ module.exports = {
             loader: 'file-loader',
             options: {
               name: '[name].[ext]',
-              outputPath: 'fonts/',
+              outputPath: 'assets/fonts/',
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'assets/img/',
             },
           },
         ],
@@ -97,10 +106,6 @@ module.exports = {
     new CleanWebpackPlugin(['dist'], {
       root: process.cwd(),
     }),
-    // new CopyPlugin([
-    //   { from: 'src/assets/img', to: 'assets/img' },
-    //   { from: 'src/assets/fonts', to: 'assets/fonts' },
-    // ]),
     new MiniCssExtractPlugin({
       filename: '[name].min.css',
     }),

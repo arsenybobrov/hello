@@ -1,6 +1,7 @@
 extends ../../siteframes/defaultSiteframe
 
 block content
+  .header
   +dummyMixin({
     "headline": "hello.",
     "text": "prototyping ideas."
@@ -8,3 +9,6 @@ block content
   +anotherDummyMixin({
     "text": "click me"
   })
+  br
+  br
+  img(src=require('../../assets/img/hello_nature.jpg') alt='sample image')
