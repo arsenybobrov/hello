@@ -12,7 +12,11 @@ create frontend prototypes with pug, scss, es6 & the power of webpack.
 
 ## usage
 ### config
-import js & SCSS partials, fonts, pug mixins inside ```src/config```. 
+import js & SCSS partials, fonts, pug mixins inside ```src/config```.
+
+### componets
+every pug component/template that should be included inside artefact must follow the following name convention:
+```*.component.pug```.
 
 ### images
 its recomended to use a var for img path inside scss partials e.g. ```background: url($imgPath + 'content/hello_cgn.jpg') no-repeat;``` since

@@ -4,31 +4,61 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const fs = require('fs');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-function generateHtmlPlugins(templateDir) {
-  const templateFiles = fs.readdirSync(path.resolve(__dirname, templateDir));
-  return templateFiles.map((item) => {
-    const itemFiles = fs.readdirSync(path.resolve(__dirname, `${templateDir}/${item}`));
-    const filename = itemFiles.find((file) => file.match('component.pug'));
+const getFilePathArray = (rootDir) => {
+  const paths = [];
 
-    if (filename) {
-      const parts = filename.split('.');
-      const name = parts[0];
-      const identifier = parts[1];
-      const extension = parts[2];
-      return new HtmlWebpackPlugin({
-        filename: `${name}.html`,
-        template: path.resolve(__dirname, `${templateDir}/${item}/${name}.${identifier}.${extension}`),
-      });
+  const walk = (directory, parent) => {
+    const dirPath = path.resolve(__dirname, directory);
+    const templateFiles = fs.readdirSync(dirPath);
+
+    templateFiles.forEach((file) => {
+      const filepath = path.resolve(__dirname, directory, file);
+      const isDirectory = fs.lstatSync(filepath).isDirectory();
+
+      if (isDirectory) {
+        const subDirectory = path.join(directory, file);
+        if (parent) {
+          const parentPath = path.join(parent, file);
+          walk(subDirectory, parentPath);
+        } else {
+          walk(subDirectory, file);
+        }
+      } else if (parent) {
+        const fileWithParent = path.join(parent, file);
+        paths.push(fileWithParent);
+      } else {
+        paths.push(file);
+      }
+    });
+  };
+
+  walk(rootDir);
+  return paths;
+};
+
+const createHtmlWebpackPlugins = (dir) => {
+  const templateFiles = getFilePathArray(dir);
+  const filenames = [];
+
+  templateFiles.forEach((file) => {
+    if (file.indexOf('component.pug') > -1) {
+      filenames.push(file);
     }
+  });
 
+  return filenames.map((filePath) => {
+    const filename = filePath.split('.');
+    const name = filename[0];
+    const identifier = filename[1];
+    const extension = filename[2];
     return new HtmlWebpackPlugin({
-      filename: '../defaultSiteframe.html',
-      template: path.resolve(__dirname, './src/siteframes/defaultSiteframe.pug'),
+      filename: `${name}.html`,
+      template: path.resolve(__dirname, `${dir}/${name}.${identifier}.${extension}`),
     });
   });
-}
+};
 
-const htmlPlugins = generateHtmlPlugins('./src/components');
+const htmlPlugins = createHtmlWebpackPlugins('./src/components');
 
 module.exports = {
   mode: 'production',
