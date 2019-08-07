@@ -3,6 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const fs = require('fs');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { prodBaseUrl } = require('./src/config/config');
 
 const getFilePathArray = (rootDir) => {
   const paths = [];
@@ -66,6 +67,7 @@ module.exports = {
   output: {
     filename: 'main.min.js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: prodBaseUrl,
   },
   devtool: 'source-map',
   module: {
