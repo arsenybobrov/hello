@@ -4,11 +4,7 @@ prototyping ideas.
 create frontend prototypes with pug, scss, es6, local dev server incl. hot reload. powered by webpack 4.
 
 ## install, develop, build
-```npm install```
-
-```npm run dev```
-
-```npm run build```
+```npm install```, ```npm run dev```, ```npm run build```.
 
 ## usage
 ### config
