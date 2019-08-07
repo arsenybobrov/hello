@@ -3,7 +3,12 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const fs = require('fs');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const { prodBaseUrl } = require('./src/config/config');
+const { prodBaseUrl, devBaseUrl } = require('./src/config/config');
+
+const production = process.env.NODE_ENV === 'production';
+const publicPath = production ? prodBaseUrl : devBaseUrl;
+const mode = production ? 'production' : 'development';
+const devtool = production ? 'source-map' : 'inline-source-map';
 
 const getFilePathArray = (rootDir) => {
   const paths = [];
@@ -62,14 +67,19 @@ const createHtmlWebpackPlugins = (dir) => {
 const htmlPlugins = createHtmlWebpackPlugins('./src/components');
 
 module.exports = {
-  mode: 'production',
+  mode,
   entry: './src/config/index.js',
   output: {
     filename: 'main.min.js',
     path: path.resolve(__dirname, 'dist'),
-    publicPath: prodBaseUrl,
+    publicPath,
   },
-  devtool: 'source-map',
+  devtool,
+  devServer: {
+    contentBase: './dist',
+    port: 3000,
+    hot: true,
+  },
   module: {
     rules: [
       {
@@ -89,24 +99,29 @@ module.exports = {
       },
       {
         test: /\.(sa|sc|c)ss$/,
-        use: [{
-          loader: MiniCssExtractPlugin.loader,
-        }, {
-          loader: 'css-loader',
-          options: {
-            sourceMap: true,
+        use: [
+          {
+            loader: production ? MiniCssExtractPlugin.loader : 'style-loader',
           },
-        }, {
-          loader: 'postcss-loader',
-          options: {
-            sourceMap: true,
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+            },
           },
-        }, {
-          loader: 'sass-loader',
-          options: {
-            sourceMap: true,
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true,
+            },
           },
-        }],
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
+        ],
       },
       {
         test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
@@ -140,6 +155,10 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: '[name].min.css',
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: path.resolve(__dirname, './src/siteframes/defaultSiteframe.pug'),
     }),
   ].concat(htmlPlugins),
 };
