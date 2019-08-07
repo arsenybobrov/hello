@@ -77,8 +77,8 @@ module.exports = {
   devtool,
   devServer: {
     contentBase: './dist',
+    watchContentBase: true,
     port: 3000,
-    hot: true,
   },
   module: {
     rules: [
