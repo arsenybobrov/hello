@@ -3,7 +3,15 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const fs = require('fs');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const { prodBaseUrl, devBaseUrl } = require('./src/config/config');
+const {
+  prodBaseUrl,
+  devBaseUrl,
+} = require('./src/config/privateConfig');
+const {
+  projectName,
+  compoentsDir,
+  artefactPugFiles,
+} = require('./src/config/publicConfig');
 
 const production = process.env.NODE_ENV === 'production';
 const publicPath = production ? prodBaseUrl : devBaseUrl;
@@ -47,7 +55,7 @@ const createHtmlWebpackPlugins = (dir) => {
   const filenames = [];
 
   templateFiles.forEach((file) => {
-    if (file.indexOf('component.pug') > -1) {
+    if (file.indexOf(artefactPugFiles) > -1) {
       filenames.push(file);
     }
   });
@@ -65,6 +73,7 @@ const createHtmlWebpackPlugins = (dir) => {
 };
 
 const htmlPlugins = createHtmlWebpackPlugins('./src/components');
+const htmlPlugins = createHtmlWebpackPlugins(compoentsDir);
 
 module.exports = {
   mode,

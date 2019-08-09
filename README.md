@@ -14,7 +14,7 @@ this setup uses pug templating and i think it is a bit closer to the "good" old 
 ## usage
 ### config
 import js & SCSS partials, fonts, pug mixins inside ```src/config```.
-rename ```src/config/config.dummy.js``` into ```src/config/config.js``` and edit vars inside.
+rename ```src/config/privateConfig.dummy.js``` into ```src/config/privateConfig.js``` and edit vars inside.
 
 ### componets
 every pug component/template that should be included inside artefact must follow the following name convention:
