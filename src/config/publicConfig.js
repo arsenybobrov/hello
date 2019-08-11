@@ -1,9 +1,16 @@
-const projectName = 'hello.';
-const compoentsDir = './src/components';
+const componentsDir = './src/components';
 const artefactPugFiles = 'component.pug';
 
+const breakpoints = {
+  xs: 575,
+  sm: 576,
+  md: 768,
+  lg: 992,
+  xl: 1200,
+};
+
 module.exports = {
-  projectName,
-  compoentsDir,
+  breakpoints,
+  componentsDir,
   artefactPugFiles,
 };

@@ -8,8 +8,7 @@ const {
   devBaseUrl,
 } = require('./src/config/privateConfig');
 const {
-  projectName,
-  compoentsDir,
+  componentsDir,
   artefactPugFiles,
 } = require('./src/config/publicConfig');
 
@@ -72,8 +71,7 @@ const createHtmlWebpackPlugins = (dir) => {
   });
 };
 
-const htmlPlugins = createHtmlWebpackPlugins('./src/components');
-const htmlPlugins = createHtmlWebpackPlugins(compoentsDir);
+const htmlPlugins = createHtmlWebpackPlugins(componentsDir);
 
 module.exports = {
   mode,
