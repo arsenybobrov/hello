@@ -1,16 +1,34 @@
+::selection {
+  background: $brand;
+  color: $light;
+}
+
+::-moz-selection {
+  background: $brand;
+  color: $light;
+}
+
 body {
   font-size: $size;
   font-family: 'exo_regular', sans-serif;
+  max-width: 1000px;
+  padding: 0 40px;
+  margin: 0 auto;
 
   @include sm {
     background-color: $brand;
   }
 
-  @include rwd(1635) {
+  @include mq(1635) {
     background-color: aquamarine;
   }
 }
 
 a {
   font-size: 25px;
+}
+
+h1 {
+  font-size: 50px;
+  margin: 35px 0;
 }

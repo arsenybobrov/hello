@@ -58,7 +58,7 @@
   }
 }
 
-@mixin rwd($screen) {
+@mixin mq($screen) {
   @media (min-width: $screen + 'px') {
     @content;
   }
