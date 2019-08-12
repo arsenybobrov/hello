@@ -1,5 +1,6 @@
 @import "variables";
 @import "fonts";
+@import "../helpers/scssMixins/mediaQuieries.helper";
 @import "../siteframes/globalStyles";
 @import "../components/molecules/dummyComponent/dummy";
 @import "../components/atoms/anotherDummyComponent/anotherDummy";

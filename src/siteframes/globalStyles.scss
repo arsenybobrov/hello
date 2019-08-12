@@ -1,6 +1,14 @@
 body {
   font-size: $size;
   font-family: 'exo_regular', sans-serif;
+
+  @include sm {
+    background-color: $brand;
+  }
+
+  @include rwd(1635) {
+    background-color: aquamarine;
+  }
 }
 
 a {

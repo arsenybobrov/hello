@@ -5,7 +5,7 @@ import '../assets/fonts/exo2-regular-webfont.woff2';
 
 import dummy from '../components/molecules/dummyComponent/dummy';
 import anotherDummy from '../components/atoms/anotherDummyComponent/anotherDummy';
-import getBreakpoint from '../helpers/js/getBreakpoint';
+import getBreakpoint from '../helpers/js/getBreakpoint.helper';
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log('document is ready!');

@@ -1,4 +1,4 @@
-import getBreakpoint from '../../../helpers/js/getBreakpoint';
+import getBreakpoint from '../../../helpers/js/getBreakpoint.helper';
 
 const dummy = (prop) => {
   console.log(prop);
