@@ -16,7 +16,7 @@ body {
   margin: 0 auto;
 
   @include sm {
-    background-color: $brand;
+    background-color: yellow;
   }
 
   @include mq(1635) {

@@ -15,7 +15,7 @@ this setup uses pug templating and i think it is a bit closer to the "good" old 
 fonts & images are inside ```src/assets```.
 
 ### config
-import js & SCSS partials, fonts, pug mixins inside ```src/config```.
+IMPORTANT: import js & SCSS partials, fonts, pug mixins inside ```src/config```.
 rename ```src/config/privateConfig.dummy.js``` into ```src/config/privateConfig.js``` and edit vars inside.
 
 ### images
