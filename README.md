@@ -7,8 +7,9 @@ create frontend prototypes with pug, scss, es6, local dev server incl. hot reloa
 sometimes you need/want to create a frondend prototype for further implementation or just because your mother in law needs a simple website for an aniversary event.
 this setup uses pug templating and i think it is a bit closer to the "good" old way of prototyping frontends :)
 
-## install, develop, build
-```npm install```, ```npm run dev```, ```npm run build```.
+## install, develop, build, test
+```npm install```, ```npm run dev```, ```npm run build```. ```npm run test```.
+build task will fail if tests fail.
 
 ## usage
 ### assets
