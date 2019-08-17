@@ -9,7 +9,7 @@ this setup uses pug templating and i think it is a bit closer to the "good" old 
 
 ## install, develop, build, test
 ```npm install```, ```npm run dev```, ```npm run build```. ```npm run test```.
-build task will fail if tests fail.
+build task will fail if tests and/or eslint validation fail.
 
 ## usage
 ### assets
