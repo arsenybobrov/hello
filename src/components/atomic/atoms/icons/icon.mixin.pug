@@ -1,0 +1,11 @@
+mixin icon(props)
+  - var props = props || {}
+
+  .icon
+    if props.icon === 'github'
+      include svgs/github.icon.pug
+
+    if !props.href && props.text
+      !=props.text
+    if props.href && props.text
+      a(href=props.href)!=props.text

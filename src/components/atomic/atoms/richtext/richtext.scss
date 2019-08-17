@@ -1,0 +1,26 @@
+.richtext {
+  h2 {
+    font-size: 25px;
+    text-transform: uppercase;
+  }
+
+  h2,
+  p,
+  ul {
+    margin-bottom: 25px;
+  }
+
+  a {
+    transition: opacity .25s ease-out;
+    text-decoration: none;
+
+    &:hover {
+      opacity: .5;
+    }
+  }
+
+  ul {
+    list-style: square;
+    padding-left: 18px;
+  }
+}

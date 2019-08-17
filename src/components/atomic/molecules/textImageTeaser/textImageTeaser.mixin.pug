@@ -1,0 +1,10 @@
+mixin textImageTeaser(props)
+  - var props = props || {}
+
+  .textImageTeaser
+    .textImageTeaser__text
+      +text(props.text)
+      each cta in props.ctas
+        +icon(cta)
+    .textImageTeaser__image
+      +picture
