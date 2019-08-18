@@ -22,7 +22,8 @@ rename ```src/config/privateConfig.dummy.js``` into ```src/config/privateConfig.
 ### images
 its recomended to use a var for img path inside scss partials e.g. ```background: url($imgPath + 'content/hello_cgn.jpg') no-repeat;``` since
 the path resolving is depending on ```src/config/main.scss```. this will just prevent your IDE from error highlighting wrong path to image.
-inside pug templates you must handle images with require e.g. ```img(src=require('../../assets/img/hello_nature.jpg') alt='sample image')```.
+inside pug templates you must import the images inside a component that extends the ```src/siteframes/defaultSiteframe.pug```.
+See ```src/components/atomic/molecules/textImageTeaser/textImageTeaser.component.pug``` for a sample implementation.
 
 ### componets
 every pug component/template that should be included inside artefact must follow the following name convention:

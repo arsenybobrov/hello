@@ -2,3 +2,6 @@ mixin picture(props)
   - var props = props || {}
 
   picture
+    source(media='(min-width: 769px)' srcset=props.lg)
+    source(media='(min-width: 576px)' srcset=props.md)
+    img(src=props.xs alt=props.altText)

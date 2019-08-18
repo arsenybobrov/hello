@@ -5,4 +5,25 @@
     width: 25px;
     height: 25px;
   }
+
+  @include mq(1450) {
+    height: 100vh;
+    padding: 35px;
+    background: url($imgPath + 'hello_cgn.jpg') no-repeat center center;
+    background-size: cover;
+  }
+}
+
+.textImageTeaser__text {
+  @include mq(1450) {
+    height: max-content;
+    padding: 35px;
+    background: rgba(255, 255, 255, .7);
+  }
+}
+
+.textImageTeaser__image {
+  @include xlUp {
+    display: none;
+  }
 }

@@ -4,6 +4,10 @@ block meta
   title hello. atomic design
 
 block content
+  - var imgXs = require('../../../../assets/img/hello_nature.jpg')
+  - var imgMd = require('../../../../assets/img/hello_cgn.jpg')
+  - var imgLg = require('../../../../assets/img/hello_nature.jpg')
+
   +textImageTeaser({
     "text": "<h2>I am HELLO.</h2><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean <a href='#'>commodo</a> ligula eget dolor. Aenean massa.</p><ul><li>Lorem ipsum</li><li>Cum sociis natoque penatibus</li></ul>",
     "ctas": [
@@ -12,5 +16,11 @@ block content
         "text": "visit me on github",
         "href": "https://github.com/arsenybobrov/hello"
       }
-    ]
+    ],
+    "picture": {
+      "xs": imgXs,
+      "md": imgMd,
+      "lg": imgLg,
+      "altText": "hello. picture",
+    }
   })
