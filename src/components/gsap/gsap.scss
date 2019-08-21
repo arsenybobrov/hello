@@ -11,3 +11,7 @@
   transition: opacity .25s ease-out;
   margin-top: 35px;
 }
+
+.typewriter {
+  @extend .slogan;
+}

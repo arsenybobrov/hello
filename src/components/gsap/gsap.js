@@ -1,5 +1,5 @@
-import TweenMax, { Elastic } from 'gsap/TweenMax';
-import fadeInWords from '../../helpers/fadeInWords.helper';
+import TweenMax, { Elastic, SteppedEase } from 'gsap/TweenMax';
+import fadeInElms from '../../helpers/js/fadeInElms.helper';
 
 const textFadeIn = () => {
   TweenMax.to('.description', 1, {
@@ -17,7 +17,16 @@ const handleSlogan = () => {
 };
 
 const gsapExample = () => {
-  fadeInWords('slogan', 1, 0.5, handleSlogan);
+  const sloganId = document.getElementById('slogan');
+  const typewriterId = document.getElementById('typewriter');
+
+  if (sloganId) {
+    fadeInElms('slogan', ' ', 1, 0.5, 1, handleSlogan);
+  }
+
+  if (typewriterId) {
+    fadeInElms('typewriter', '', 1, 0.15, 1);
+  }
 };
 
 export default gsapExample;
