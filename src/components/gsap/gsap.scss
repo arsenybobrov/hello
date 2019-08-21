@@ -1,0 +1,13 @@
+.slogan {
+  font-size: 50px;
+  font-weight: bold;
+  color: #990000;
+  transform: matrix(1, 0, 0, 1, 0, 150);
+}
+
+.description {
+  line-height: 1.5;
+  opacity: 0;
+  transition: opacity .25s ease-out;
+  margin-top: 35px;
+}
