@@ -18,14 +18,9 @@ const handleSlogan = () => {
 
 const gsapExample = () => {
   const sloganId = document.getElementById('slogan');
-  const typewriterId = document.getElementById('typewriter');
 
   if (sloganId) {
     fadeInElms('slogan', ' ', 1, 0.5, 1, handleSlogan);
-  }
-
-  if (typewriterId) {
-    fadeInElms('typewriter', '', 1, 0.15, 1);
   }
 };
 
