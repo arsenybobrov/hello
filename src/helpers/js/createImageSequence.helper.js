@@ -2,7 +2,7 @@ import ScrollMagic from 'scrollmagic';
 import 'animation.gsap'; // eslint-disable-line import/no-unresolved
 import 'debug.addIndicators'; // eslint-disable-line import/no-unresolved
 
-const createImageSequence = (id, trigger, duration, repeat, debug) => {
+const createImageSequence = (id, trigger, duration, repeat, debug, callback) => {
   if (id && trigger) {
     const images = JSON.parse(document.getElementById(id).getAttribute('data-images'));
     const obj = { curImg: 0 };
@@ -27,6 +27,12 @@ const createImageSequence = (id, trigger, duration, repeat, debug) => {
 
     if (debug) {
       scene.addIndicators();
+    }
+
+    if (callback) {
+      scene.on('end', () => {
+        callback();
+      });
     }
   } else {
     console.warn('createImageSequence() --> no such id: ', id, 'or: ', trigger);

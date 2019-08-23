@@ -1,7 +1,38 @@
 .s100 {
   height: 100vh;
+  transition: background-color 3s ease-out;
+}
+
+.s100--dark {
+  background-color: black;
+}
+
+.section {
+  position: relative;
 }
 
 #imagesequence {
-  text-align: center;
+  width: 50%;
+
+  img {
+    width: 550px;
+  }
 }
+
+.content {
+  position: absolute;
+  width: 50%;
+  left: 50%;
+}
+
+.content__headline {
+  font-size: 50px;
+  font-weight: bold;
+  color: #990000;
+}
+
+.content__text {
+  line-height: 1.5;
+  margin-top: 35px;
+}
+
