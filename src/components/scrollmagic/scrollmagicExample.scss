@@ -36,3 +36,16 @@
   margin-top: 35px;
 }
 
+#svgDrawingArea {
+  display: flex;
+  height: 400px;
+  background: #eeeeee;
+  justify-content: center;
+  align-items: center;
+
+  svg {
+    height: 250px;
+    width: 250px;
+  }
+}
+
