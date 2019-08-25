@@ -40,7 +40,7 @@ const fadeInElms = (id, separator, startAt, delay, duration, callback) => {
       });
     });
   } else {
-    console.warn('animateElms() --> no such id:', id);
+    console.warn('animateElms() --> no such id: "', id, '"s');
   }
 };
 

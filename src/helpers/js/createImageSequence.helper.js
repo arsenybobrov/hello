@@ -3,7 +3,10 @@ import 'animation.gsap'; // eslint-disable-line import/no-unresolved
 import 'debug.addIndicators'; // eslint-disable-line import/no-unresolved
 
 const createImageSequence = (id, trigger, duration, repeat, debug, callback) => {
-  if (id && trigger) {
+  const checkId = document.getElementById(id);
+  const checkTrigger = document.getElementById(trigger);
+
+  if (checkId && checkTrigger) {
     const images = JSON.parse(document.getElementById(id).getAttribute('data-images'));
     const obj = { curImg: 0 };
 
@@ -21,7 +24,7 @@ const createImageSequence = (id, trigger, duration, repeat, debug, callback) => 
 
     const controller = new ScrollMagic.Controller();
 
-    const scene = new ScrollMagic.Scene({ triggerElement: trigger, duration })
+    const scene = new ScrollMagic.Scene({ triggerElement: `#${trigger}`, duration })
       .setTween(tween)
       .addTo(controller);
 
@@ -35,7 +38,7 @@ const createImageSequence = (id, trigger, duration, repeat, debug, callback) => 
       });
     }
   } else {
-    console.warn('createImageSequence() --> no such id: ', id, 'or: ', trigger);
+    console.warn('makeStickyOnScroll() --> no such id: "', id, '" or: "', trigger, '"');
   }
 };
 

@@ -3,7 +3,8 @@ import 'animation.gsap'; // eslint-disable-line import/no-unresolved
 import 'debug.addIndicators'; // eslint-disable-line import/no-unresolved
 
 import createImageSequence from '../../helpers/js/createImageSequence.helper';
-import makeSticky from '../../helpers/js/makeSticky.helper';
+import makeStickyOnScroll from '../../helpers/js/makeStickyOnScroll.helper';
+import toggleClassOnScroll from '../../helpers/js/toggleClassOnScroll.helper';
 
 const playWithGithubSvg = () => {
   const pathPrepare = (el) => {
@@ -33,12 +34,31 @@ const changeBgColor = () => {
 const scrollmagicExample = () => {
   const elm = document.getElementById('imagesequence');
   const svg = document.getElementById('svgDrawingArea');
+  const teaser = document.getElementsByClassName('teaserText');
 
-  if (elm) {
-    makeSticky('#myimg', '#imagesequence', 650, 200, false, null);
-    createImageSequence('myimg', '#imagesequence', 1200, 15, false, changeBgColor);
+  // scrollmagic-class-toggle
+  if (teaser) {
+    toggleClassOnScroll(
+      'teaserText',
+      [
+        'teaserText__headline',
+        'teaserText__text',
+        'teaserText__cta-list',
+      ],
+      500,
+      -100,
+      '--inView',
+      false
+    );
   }
 
+  // scrollmagic-image-sequence
+  if (elm) {
+    makeStickyOnScroll('myimg', 'imagesequence', 650, 200, false, null);
+    createImageSequence('myimg', 'imagesequence', 1200, 15, false, changeBgColor);
+  }
+
+  // scrollmagic-svg-drawing
   if (svg) {
     playWithGithubSvg();
   }

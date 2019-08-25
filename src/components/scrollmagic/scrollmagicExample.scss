@@ -3,6 +3,11 @@
   transition: background-color 3s ease-out;
 }
 
+.s30 {
+  height: 30vh;
+  background: lightgray;
+}
+
 .s100--dark {
   background-color: black;
 }
@@ -49,3 +54,97 @@
   }
 }
 
+.teaserText {
+  padding: 75px 35px;
+
+  & + & {
+    margin-top: 35px * 2;
+  }
+}
+
+.teaserText__headline {
+  position: relative;
+  color: #990000;
+  font-weight: bold;
+  font-size: 35px;
+  line-height: 45px;
+  text-transform: uppercase;
+  display: inline-block;
+  word-break: break-word;
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 20px;
+    background: #990000;
+    opacity: .14;
+    transition: width .5s ease-out;
+  }
+}
+
+.teaserText__headline--inView {
+  &:after {
+    width: 100%;
+  }
+}
+
+@keyframes slideInFromBottom {
+  from { opacity: 0; top: 35px; }
+  to { opacity: 1; top: 0; }
+}
+
+.teaserText__text,
+.teaserText__cta-list {
+  position: relative;
+  margin-top: 35px;
+  opacity: 0;
+}
+
+.teaserText__text--inView {
+  animation: slideInFromBottom;
+  animation-delay: .3s;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes animateCtaList-bg {
+  from { width: 0 }
+  to { width: 150px; }
+}
+
+.teaserText__cta-list {
+  position: relative;
+  padding: 15px 0;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: -35px;
+    top: 0;
+    height: 100%;
+    width: 0;
+    background: #990000;
+    opacity: .14;
+  }
+
+  li + li {
+    margin-top: 10px;
+  }
+}
+
+.teaserText__cta-list--inView {
+  animation: slideInFromBottom;
+  animation-delay: 1s;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+
+  &:before {
+    animation: animateCtaList-bg;
+    animation-delay: 1.5s;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+  }
+}
