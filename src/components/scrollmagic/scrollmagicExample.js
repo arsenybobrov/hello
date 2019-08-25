@@ -5,6 +5,7 @@ import 'debug.addIndicators'; // eslint-disable-line import/no-unresolved
 import createImageSequence from '../../helpers/js/createImageSequence.helper';
 import makeStickyOnScroll from '../../helpers/js/makeStickyOnScroll.helper';
 import toggleClassOnScroll from '../../helpers/js/toggleClassOnScroll.helper';
+import tweenOnScroll from '../../helpers/js/tweenOnScroll.helper';
 
 const playWithGithubSvg = () => {
   const pathPrepare = (el) => {
@@ -34,10 +35,11 @@ const changeBgColor = () => {
 const scrollmagicExample = () => {
   const elm = document.getElementById('imagesequence');
   const svg = document.getElementById('svgDrawingArea');
-  const teaser = document.getElementsByClassName('teaserText');
+  const toggler = document.getElementById('classToggleExample');
+  const tweener = document.getElementById('tweeningExample');
 
   // scrollmagic-class-toggle
-  if (teaser) {
+  if (toggler) {
     toggleClassOnScroll(
       'teaserText',
       [
@@ -48,6 +50,39 @@ const scrollmagicExample = () => {
       500,
       -100,
       '--inView',
+      false
+    );
+  }
+
+  // scrollmagic-gsap-tweening
+  if (tweener) {
+    tweenOnScroll(
+      'teaserText',
+      [
+        {
+          name: 'teaserText__headline',
+          stylings: {
+            from: { opacity: 0, top: '-45px' },
+            to: { opacity: 1, top: 0 },
+          },
+        },
+        {
+          name: 'teaserText__text',
+          stylings: {
+            from: { opacity: 0, top: '45px' },
+            to: { opacity: 1, top: 0 },
+          },
+        },
+        {
+          name: 'teaserText__cta-list',
+          stylings: {
+            from: { opacity: 0, top: '90px' },
+            to: { opacity: 1, top: 0 },
+          },
+        },
+      ],
+      300,
+      0,
       false
     );
   }

@@ -2,13 +2,15 @@ import ScrollMagic from 'scrollmagic';
 import getChildElm from './partials/getChildElm.partial';
 import getPhantomId from './partials/getPhantomId.partial';
 
-const toggleClassOnScrollHelper = (duration, trigger, id, className, offset, debug) => {
+const tweenOnScrollHelper = (duration, trigger, id, styles, offset, debug) => {
+  const tween = TweenMax.fromTo(`#${id}`, 1, styles.from, styles.to); // eslint-disable-line no-undef
+
   const controller = new ScrollMagic.Controller({
     globalSceneOptions: { duration, offset },
   });
 
   const scene = new ScrollMagic.Scene({ triggerElement: `#${trigger}` })
-    .setClassToggle(`#${id}`, className)
+    .setTween(tween)
     .addTo(controller);
 
   if (debug) {
@@ -16,32 +18,30 @@ const toggleClassOnScrollHelper = (duration, trigger, id, className, offset, deb
   }
 };
 
-const toggleClassOnScroll = (
+const tweenOnScroll = (
   parentClassName,
-  childrenClassNames,
+  childrenStyles,
   duration,
   offset,
-  toggleClassIdentifier,
   debug
 ) => {
   const elm = document.getElementsByClassName(parentClassName);
 
   if (elm.length) {
     document.querySelectorAll(`.${parentClassName}`).forEach((parent) => {
-      childrenClassNames.forEach((child) => {
-        const childElm = getChildElm(parent, child);
+      childrenStyles.forEach((child) => {
+        const childElm = getChildElm(parent, child.name);
 
         if (childElm) {
-          const id = getPhantomId(childElm, 'clsTgl_');
-          const className = `${child}${toggleClassIdentifier}`;
+          const id = getPhantomId(childElm, 'tweenElm_');
 
-          toggleClassOnScrollHelper(duration, id, id, className, offset, debug);
+          tweenOnScrollHelper(duration, id, id, child.stylings, offset, debug);
         }
       });
     });
   } else {
-    console.warn('toggleClassOnScroll() --> no such className: "', elm, '"');
+    console.warn('tweenOnScroll() --> no such className: "', elm, '"');
   }
 };
 
-export default toggleClassOnScroll;
+export default tweenOnScroll;

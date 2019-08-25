@@ -103,6 +103,10 @@
   opacity: 0;
 }
 
+.teaserText__text--tweener {
+  top: 35px;
+}
+
 .teaserText__text--inView {
   animation: slideInFromBottom;
   animation-delay: .3s;
