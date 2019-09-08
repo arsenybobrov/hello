@@ -1,4 +1,6 @@
 import ScrollMagic from 'scrollmagic';
+import 'animation.gsap'; // eslint-disable-line import/no-unresolved
+import 'debug.addIndicators'; // eslint-disable-line import/no-unresolved
 import getChildElm from './partials/getChildElm.partial';
 import getPhantomId from './partials/getPhantomId.partial';
 

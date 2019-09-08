@@ -38,7 +38,7 @@ const createImageSequence = (id, trigger, duration, repeat, debug, callback) => 
       });
     }
   } else {
-    console.warn('makeStickyOnScroll() --> no such id: "', id, '" or: "', trigger, '"');
+    console.warn('createImageSequence() --> no such id: "', id, '" or: "', trigger, '"');
   }
 };
 

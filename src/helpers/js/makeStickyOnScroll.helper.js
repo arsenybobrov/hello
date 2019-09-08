@@ -2,7 +2,7 @@ import ScrollMagic from 'scrollmagic';
 import 'animation.gsap'; // eslint-disable-line import/no-unresolved
 import 'debug.addIndicators'; // eslint-disable-line import/no-unresolved
 
-const makeSticky = (id, trigger, duration, offset, debug, callback) => {
+const makeStickyOnScroll = (id, trigger, duration, offset, debug, callback) => {
   const checkId = document.getElementById(id);
   const checkTrigger = document.getElementById(trigger);
 
@@ -23,8 +23,8 @@ const makeSticky = (id, trigger, duration, offset, debug, callback) => {
       });
     }
   } else {
-    console.warn('makeStickyOnScroll() --> no such id: "', id, '" or: "', trigger, '"');
+    console.warn('makeStickyOnScrollOnScroll() --> no such id: "', id, '" or: "', trigger, '"');
   }
 };
 
-export default makeSticky;
+export default makeStickyOnScroll;
